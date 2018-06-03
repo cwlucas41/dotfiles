@@ -75,9 +75,10 @@ set fileencoding=utf-8
 
 export EDITOR='vim'
 
-alias ls="ls --color=auto"
-alias grep="grep --color=auto"
-alias cdw="cd ~/workplace"
+alias vi='vim'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias cdw='cd ~/workplace'
 
 alias so='source ~/.zshrc'
 alias vso='vim ~/.zshrc'
