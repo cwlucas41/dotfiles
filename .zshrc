@@ -67,8 +67,6 @@ source $ZSH/oh-my-zsh.sh
 
 
 # User configuration
-wmname LG3D
-
 export LANG=en_US.UTF-8
 set encoding=utf-8
 set fileencoding=utf-8
@@ -81,7 +79,7 @@ alias grep='grep --color=auto'
 alias cdw='cd ~/workplace'
 
 alias so='source ~/.zshrc'
-alias vso='vim ~/.zshrc'
+alias virc='vim ~/.zshrc'
 
 
 man() {
