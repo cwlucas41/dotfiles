@@ -65,8 +65,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-
-# User configuration
+# Master user configuration
 export LANG=en_US.UTF-8
 set encoding=utf-8
 set fileencoding=utf-8
@@ -92,3 +91,4 @@ man() {
     command man "$@"
 }
 
+# Machine-specific user configuration
