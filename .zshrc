@@ -63,33 +63,33 @@ plugins=(
   vi-mode
 )
 
+source $ZSH/oh-my-zsh.sh
+
 
 # User configuration
 wmname LG3D
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export LANG=en_US.UTF-8
+set encoding=utf-8
+set fileencoding=utf-8
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export EDITOR='vim'
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
+alias cdw="cd ~/workplace"
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+alias so='source ~/.zshrc'
+alias vso='vim ~/.zshrc'
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+man() {
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    command man "$@"
+}
+
