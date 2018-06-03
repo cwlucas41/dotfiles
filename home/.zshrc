@@ -96,3 +96,4 @@ man() {
 }
 
 # Machine-specific user configuration
+wmname LG3D
