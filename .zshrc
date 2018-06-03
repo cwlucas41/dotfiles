@@ -76,6 +76,7 @@ alias vi='vim'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias cdw='cd ~/workplace'
+alias tmux='\tmux attach-session -t 0 || \tmux new-session -s 0'
 
 alias so='source ~/.zshrc'
 alias virc='vim ~/.zshrc'
