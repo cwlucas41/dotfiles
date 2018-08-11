@@ -65,6 +65,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.bin:$PATH"
+
 # Master user configuration
 export LANG=en_US.UTF-8
 set encoding=utf-8
