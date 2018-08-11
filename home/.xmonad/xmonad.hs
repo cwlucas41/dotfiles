@@ -1,5 +1,7 @@
 import XMonad
 
+import XMonad.Config.Desktop
+
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
@@ -16,7 +18,7 @@ myManageHook = composeAll
     [ className =? "Gimp"       --> doFloat
     , className =? "Vncviewer"  --> doFloat
     , isDialog                  --> doCenterFloat
-    ] <+> manageDocks <+> manageHook defaultConfig
+    ] <+> manageDocks <+> manageHook desktopConfig
 
 myLayoutHook = avoidStruts $
      tall ||| threeCol ||| simpleTabbed
@@ -24,13 +26,13 @@ myLayoutHook = avoidStruts $
 tall = ResizableTall 1 (3/100) (34/55) []
 threeCol = ThreeColMid 1 (3/100) (34/55)
 
-myHandleEventHook = docksEventHook <+> handleEventHook defaultConfig
+myHandleEventHook = docksEventHook <+> handleEventHook desktopConfig
 
-myStartupHook = setWMName "LG3D" <+> startupHook defaultConfig
+myStartupHook = setWMName "LG3D" <+> startupHook desktopConfig
  
 main = do
     xmproc <- spawnPipe "xmobar"
-    xmonad $ defaultConfig
+    xmonad $ desktopConfig
         { manageHook = myManageHook
         , modMask = mod4Mask
         , startupHook = myStartupHook
