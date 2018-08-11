@@ -1,24 +1,52 @@
 import XMonad
-import XMonad.Config.Desktop
+
 import XMonad.Hooks.DynamicLog
-import qualified Data.Map as M
+import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.SetWMName
 
--- The main function.
-main = xmonad =<< statusBar myBar myPP toggleStrutsKey defaultConfig { 
-	terminal    	= "gnome-terminal",
-	keys = mykeys <+> keys def
-}
+import XMonad.Layout.Tabbed
+import XMonad.Layout.ThreeColumns
+import XMonad.Layout.ResizableTile
 
--- xmobar
-myBar = "xmobar"
+import XMonad.Util.Run
+import XMonad.Util.EZConfig
 
-myPP = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">" }
+myManageHook = composeAll
+    [ className =? "Gimp"       --> doFloat
+    , className =? "Vncviewer"  --> doFloat
+    , isDialog                  --> doCenterFloat
+    ] <+> manageDocks <+> manageHook defaultConfig
 
-toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
+myLayoutHook = avoidStruts $
+     tall ||| threeCol ||| simpleTabbed
 
-
--- bindings
-mykeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList
-	[ ((modm, xK_f), spawn "firefox")
-	, ((modm, xK_n), spawn "dmenu_run")
-	]
+tall = ResizableTall 1 (3/100) (34/55) []
+threeCol = ThreeColMid 1 (3/100) (34/55)
+ 
+main = do
+    xmproc <- spawnPipe "xmobar"
+    xmonad $ defaultConfig
+        { manageHook = myManageHook
+        , modMask = mod4Mask
+        , startupHook = setWMName "LG3D"
+        , layoutHook = myLayoutHook
+        , terminal = "urxvt"
+        , borderWidth = 2
+        , normalBorderColor = "#aaaaaa"
+        , focusedBorderColor = "#eeeeee"
+        , logHook = dynamicLogWithPP xmobarPP
+                        { ppOutput = hPutStrLn xmproc
+                        , ppTitle = xmobarColor "white" "" . shorten 75
+                        }
+        } `additionalKeys`
+        [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock; xset dpms force off")
+        , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s -e 'mv $f ~/Pictures'")
+        , ((controlMask, xK_1), spawn "layout-laptop")
+        , ((controlMask, xK_2), spawn "layout-desk")
+        , ((controlMask, xK_3), spawn "layout-conference")
+        , ((0, xK_Print), spawn "scrot -e 'mv $f ~/Pictures'")
+        , ((mod4Mask, xK_b), sendMessage ToggleStruts)
+        , ((mod4Mask .|. controlMask, xK_j), sendMessage MirrorShrink)
+        , ((mod4Mask .|. controlMask, xK_k), sendMessage MirrorExpand) 
+        ]
