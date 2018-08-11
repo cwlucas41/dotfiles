@@ -49,9 +49,6 @@ main = do
         } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock; xset dpms force off")
         , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s -e 'mv $f ~/Pictures'")
-        , ((controlMask, xK_1), spawn "layout-laptop")
-        , ((controlMask, xK_2), spawn "layout-desk")
-        , ((controlMask, xK_3), spawn "layout-conference")
         , ((0, xK_Print), spawn "scrot -e 'mv $f ~/Pictures'")
         , ((mod4Mask, xK_b), sendMessage ToggleStruts)
         , ((mod4Mask .|. controlMask, xK_j), sendMessage MirrorShrink)
