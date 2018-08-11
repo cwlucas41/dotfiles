@@ -23,14 +23,19 @@ myLayoutHook = avoidStruts $
 
 tall = ResizableTall 1 (3/100) (34/55) []
 threeCol = ThreeColMid 1 (3/100) (34/55)
+
+myHandleEventHook = docksEventHook <+> handleEventHook defaultConfig
+
+myStartupHook = setWMName "LG3D" <+> startupHook defaultConfig
  
 main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ defaultConfig
         { manageHook = myManageHook
         , modMask = mod4Mask
-        , startupHook = setWMName "LG3D"
+        , startupHook = myStartupHook
         , layoutHook = myLayoutHook
+        , handleEventHook = myHandleEventHook
         , terminal = "urxvt"
         , borderWidth = 2
         , normalBorderColor = "#aaaaaa"
