@@ -1,8 +1,8 @@
 xrdb -merge ~/.Xresources
 
 # mouse speed
-xinput --set-prop 12 'Device Accel Constant Deceleration' 3 &
-xinput --set-prop 13 'Device Accel Constant Deceleration' 3 &
+xinput --set-prop 18 'Device Accel Constant Deceleration' 3 &
+xinput --set-prop 19 'Device Accel Constant Deceleration' 3 &
 xset mouse 3 6 &
  
 # set cursor

@@ -7,17 +7,14 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
                     , Run Swap [] 10
                     , Run Date "%a %b %_d %l:%M" "date" 10
                     , Run StdinReader
-                    , Run Battery   ["--template", "Batt: <acstatus> <left>% <timeleft>" 
+                    , Run BatteryP  ["BAT0"]
+                                    ["--template", "Batt: <acstatus> <left>%" 
                                     , "--Low", "10" --units: % 
                                     , "--High", "80" --units: %
                                     , "--low", "darkred"
                                     , "--normal", "darkorange"
                                     , "--high", "darkgreen"
                                     , "--" -- battery specific options
-                                        -- AC on status
-                                        , "-O", "Charging"
-                                        -- charged status
-                                        , "-i", "Charged"
                                     ] 50
                     ]
        , sepChar = "%"
