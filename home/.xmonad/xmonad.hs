@@ -17,7 +17,14 @@ import XMonad.Layout.IM
 import XMonad.Layout.Grid
 
 import XMonad.Util.Run
+import XMonad.Util.SpawnOnce
+import XMonad.Util.Cursor
 import XMonad.Util.EZConfig
+
+myTerminal = "urxvt"
+myBorderWidth = 3
+myNormalBorderColor = "#aea79f"
+myFocusedBorderColor = "#e95420"
 
 myManageHook = composeOne
     [ isDialog                      -?> doCenterFloat
@@ -36,7 +43,16 @@ imLayout = withIM (3/16) (Role "buddy_list") (simpleTabbed ||| Grid)
 
 myHandleEventHook = docksEventHook <+> handleEventHook desktopConfig
 
-myStartupHook = setWMName "LG3D" <+> startupHook desktopConfig
+myStartupHook = setWMName "LG3D" 
+    <+> spawnOnce "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 0x000000 --height 18 --alpha 0 --monitor primary"
+    <+> spawnOnce "nm-applet --sm-disable" 
+    <+> spawnOnce "xscreensaver -no-splash" 
+    <+> spawnOnce "xsetroot -cursor_name left_ptr" 
+    <+> spawnOnce "jetbrains-toolbox --minimize" 
+    <+> spawnOnce "idea" 
+    <+> spawnOnce "xbanish" 
+    <+> spawnOnce "pidgin" 
+    <+> startupHook desktopConfig
 
 conf = desktopConfig
     { manageHook = myManageHook
@@ -44,10 +60,10 @@ conf = desktopConfig
     , startupHook = myStartupHook
     , layoutHook = myLayoutHook
     , handleEventHook = myHandleEventHook
-    , terminal = "urxvt"
-    , borderWidth = 3
-    , normalBorderColor = "#aea79f"
-    , focusedBorderColor = "#e95420"
+    , terminal = myTerminal
+    , borderWidth = myBorderWidth
+    , normalBorderColor = myNormalBorderColor
+    , focusedBorderColor = myFocusedBorderColor
     } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock; xset dpms force off")
         , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s -e 'mv $f ~/Pictures'")
