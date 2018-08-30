@@ -5,6 +5,7 @@ import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.SetWMName
 
 import XMonad.Layout
@@ -39,7 +40,7 @@ myLayoutHook = avoidStruts $
 
 tall = ResizableTall 1 (3/100) (34/55) []
 threeCol = ThreeColMid 1 (3/100) (34/55)
-imLayout = withIM (3/16) (Role "buddy_list") (simpleTabbed ||| Grid)
+imLayout = withIM (1/8) (Role "buddy_list") (simpleTabbed ||| Grid)
 
 myHandleEventHook = docksEventHook <+> handleEventHook desktopConfig
 
@@ -48,13 +49,20 @@ myStartupHook = setWMName "LG3D"
     <+> spawnOnce "nm-applet --sm-disable" 
     <+> spawnOnce "xscreensaver -no-splash" 
     <+> spawnOnce "xsetroot -cursor_name left_ptr" 
+    <+> spawnOnce "xbanish" 
     <+> spawnOnce "jetbrains-toolbox --minimize" 
     <+> spawnOnce "idea" 
     <+> spawnOnce "xbanish" 
+    <+> spawnOnce "firefox"
+    <+> spawnOnce myTerminal
     <+> spawnOnce "pidgin" 
+    <+> spawnOnce "thunderbird" 
     <+> startupHook desktopConfig
 
-conf = desktopConfig
+conf = 
+    withUrgencyHook dzenUrgencyHook
+    { args = ["-bg", "orange", "-fg", "black", "-xs", "1"]}
+    desktopConfig
     { manageHook = myManageHook
     , modMask = mod4Mask
     , startupHook = myStartupHook
@@ -65,9 +73,10 @@ conf = desktopConfig
     , normalBorderColor = myNormalBorderColor
     , focusedBorderColor = myFocusedBorderColor
     } `additionalKeys`
-        [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock; xset dpms force off")
+        [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock; sleep 0.2; xset dpms force off")
         , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s -e 'mv $f ~/Pictures'")
         , ((0, xK_Print), spawn "scrot -e 'mv $f ~/Pictures'")
+        , ((mod4Mask, xK_u), focusUrgent)
         , ((mod4Mask, xK_b), sendMessage ToggleStruts)
         , ((mod4Mask .|. controlMask, xK_j), sendMessage MirrorShrink)
         , ((mod4Mask .|. controlMask, xK_k), sendMessage MirrorExpand) 

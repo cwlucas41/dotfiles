@@ -1,8 +1,7 @@
 xrdb -merge ~/.Xresources
 
-# set cursor
-xsetroot -cursor_name left_ptr
-
+# swap alt and win
+setxkbmap -option altwin:swap_alt_win
 # make CapsLock behave like Ctrl
 setxkbmap -option ctrl:nocaps
 # make short-pressed Ctrl behave like Escape
