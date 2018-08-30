@@ -52,7 +52,6 @@ myStartupHook = setWMName "LG3D"
     <+> spawnOnce "xbanish" 
     <+> spawnOnce "jetbrains-toolbox --minimize" 
     <+> spawnOnce "idea" 
-    <+> spawnOnce "xbanish" 
     <+> spawnOnce "firefox"
     <+> spawnOnce myTerminal
     <+> spawnOnce "pidgin" 
