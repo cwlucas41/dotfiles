@@ -29,7 +29,7 @@ myFocusedBorderColor = "#e95420"
 
 myManageHook = composeOne
     [ isDialog                      -?> doCenterFloat
-    , className =? "jetbrains-idea" -?> doShift "1"
+    , className =? "jetbrains-idea" -?> doShift "2"
     , className =? "Pidgin"         -?> doShift "3"
     ] <+> manageDocks <+> manageHook desktopConfig
 
@@ -56,7 +56,6 @@ myStartupHook = setWMName "LG3D"
     <+> spawnOnce "firefox"
     <+> spawnOnce myTerminal
     <+> spawnOnce "pidgin" 
-    <+> spawnOnce "thunderbird" 
     <+> startupHook desktopConfig
 
 conf = 
