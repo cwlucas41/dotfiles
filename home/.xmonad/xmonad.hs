@@ -40,7 +40,7 @@ myLayoutHook = avoidStruts $
 
 tall = ResizableTall 1 (3/100) (34/55) []
 threeCol = ThreeColMid 1 (3/100) (34/55)
-imLayout = withIM (1/8) (Role "buddy_list") (simpleTabbed ||| Grid)
+imLayout = withIM (1/8) (Role "buddy_list") (simpleTabbed ||| GridRatio (4/3))
 
 myHandleEventHook = docksEventHook <+> handleEventHook desktopConfig
 
