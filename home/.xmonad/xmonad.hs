@@ -62,7 +62,7 @@ conf =
     { args = ["-bg", "orange", "-fg", "black", "-xs", "1"]}
     desktopConfig
     { manageHook = myManageHook
-    , modMask = mod4Mask
+    , modMask = mod1Mask
     , startupHook = myStartupHook
     , layoutHook = myLayoutHook
     , handleEventHook = myHandleEventHook
