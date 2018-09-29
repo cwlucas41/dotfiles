@@ -72,7 +72,7 @@ conf =
     , focusedBorderColor = myFocusedBorderColor
     } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock; sleep 0.2; xset dpms force off")
-        , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s -e 'mv $f ~/Pictures'")
+        , ((mod4Mask, xK_Print), spawn "sleep 0.2; scrot -s -e 'mv $f ~/Pictures'")
         , ((0, xK_Print), spawn "scrot -e 'mv $f ~/Pictures'")
         , ((mod4Mask, xK_u), focusUrgent)
         , ((mod4Mask, xK_b), sendMessage ToggleStruts)
