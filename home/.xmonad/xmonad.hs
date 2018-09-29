@@ -29,7 +29,6 @@ myFocusedBorderColor = "#e95420"
 
 myManageHook = composeOne
     [ isDialog                      -?> doCenterFloat
-    , className =? "jetbrains-idea" -?> doShift "2"
     , className =? "Pidgin"         -?> doShift "3"
     ] <+> manageDocks <+> manageHook desktopConfig
 
