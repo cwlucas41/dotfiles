@@ -1,3 +1,3 @@
 ~/.bin/xnormal
 
-exec xmonad
+exec dbus-launch xmonad

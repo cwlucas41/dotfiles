@@ -44,13 +44,12 @@ imLayout = withIM (1/8) (Role "buddy_list") (simpleTabbed ||| GridRatio (4/3))
 myHandleEventHook = docksEventHook <+> handleEventHook desktopConfig
 
 myStartupHook = setWMName "LG3D" 
-    <+> spawnOnce "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 0x000000 --height 18 --alpha 0 --monitor primary"
+    <+> spawnOnce "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 0x000000 --height 18 --alpha 0 --monitor primary --iconspacing 5 --padding 5"
     <+> spawnOnce "nm-applet --sm-disable" 
     <+> spawnOnce "xscreensaver -no-splash" 
     <+> spawnOnce "xsetroot -cursor_name left_ptr" 
     <+> spawnOnce "xbanish" 
     <+> spawnOnce "jetbrains-toolbox --minimize" 
-    <+> spawnOnce "idea" 
     <+> spawnOnce "firefox"
     <+> spawnOnce myTerminal
     <+> spawnOnce "pidgin" 
