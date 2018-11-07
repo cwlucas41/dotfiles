@@ -22,6 +22,8 @@ import XMonad.Util.SpawnOnce
 import XMonad.Util.Cursor
 import XMonad.Util.EZConfig
 
+import Graphics.X11.ExtraTypes.XF86
+
 myTerminal = "urxvt"
 myBorderWidth = 3
 myNormalBorderColor = "#aea79f"
@@ -76,6 +78,12 @@ conf =
         , ((mod4Mask, xK_b), sendMessage ToggleStruts)
         , ((mod4Mask .|. controlMask, xK_j), sendMessage MirrorShrink)
         , ((mod4Mask .|. controlMask, xK_k), sendMessage MirrorExpand) 
+        , ((0, xF86XK_AudioPlay), spawn "playerctl play-pause")
+        , ((0, xF86XK_AudioStop), spawn "playerctl stop")
+        , ((0, xF86XK_AudioNext), spawn "playerctl next")
+        , ((0, xF86XK_AudioPrev), spawn "playerctl previous")
+        , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 2%+")
+        , ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 2%-")
         ]
  
 main = do
