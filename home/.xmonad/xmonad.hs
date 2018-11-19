@@ -1,5 +1,8 @@
 import XMonad
 
+
+import XMonad.Actions.SpawnOn
+
 import XMonad.Config.Desktop
 
 import XMonad.Hooks.DynamicLog
@@ -12,7 +15,6 @@ import XMonad.Layout
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Tabbed
-import XMonad.Layout.ThreeColumns
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.IM
 import XMonad.Layout.Grid
@@ -31,16 +33,16 @@ myFocusedBorderColor = "#e95420"
 
 myManageHook = composeOne
     [ isDialog                      -?> doCenterFloat
-    , className =? "Pidgin"         -?> doShift "3"
-    ] <+> manageDocks <+> manageHook desktopConfig
+    , className =? "copyq"          -?> doFloat
+    ] <+> manageDocks <+> manageSpawn <+> manageHook desktopConfig
 
 myLayoutHook = avoidStruts $
     smartBorders $
     onWorkspace "3" imLayout $
-    tall ||| Mirror tall ||| threeCol ||| simpleTabbed
+    onWorkspace "5" simpleTabbed $
+    tall ||| Mirror tall ||| simpleTabbed
 
 tall = ResizableTall 1 (3/100) (34/55) []
-threeCol = ThreeColMid 1 (3/100) (34/55)
 imLayout = withIM (1/8) (Role "buddy_list") (GridRatio (4/3) ||| simpleTabbed)
 
 myHandleEventHook = docksEventHook <+> handleEventHook desktopConfig
@@ -52,9 +54,13 @@ myStartupHook = setWMName "LG3D"
     <+> spawnOnce "xsetroot -cursor_name left_ptr" 
     <+> spawnOnce "xbanish" 
     <+> spawnOnce "jetbrains-toolbox --minimize" 
-    <+> spawnOnce "firefox"
-    <+> spawnOnce myTerminal
-    <+> spawnOnce "pidgin" 
+    <+> spawnOnce "copyq" 
+    <+> spawnOnOnce "1" "firefox"
+    <+> spawnOnOnce "1" myTerminal
+    <+> spawnOnOnce "3" "pidgin" 
+    <+> spawnOnOnce "4" "thunderbird" 
+    <+> spawnOnOnce "5" "spotify" 
+    <+> spawnOnOnce "5" "pavucontrol" 
     <+> startupHook desktopConfig
 
 conf = 
