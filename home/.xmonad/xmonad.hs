@@ -39,7 +39,7 @@ myManageHook = composeOne
 myLayoutHook = avoidStruts $
     smartBorders $
     onWorkspace "3" imLayout $
-    onWorkspace "5" simpleTabbed $
+    onWorkspace "5" simpleTabbed ||| tall ||| Mirror tall $
     tall ||| Mirror tall ||| simpleTabbed
 
 tall = ResizableTall 1 (3/100) (34/55) []
