@@ -39,11 +39,13 @@ myManageHook = composeOne
 myLayoutHook = avoidStruts $
     smartBorders $
     onWorkspace "3" imLayout $
-    onWorkspace "5" simpleTabbed ||| tall ||| Mirror tall $
-    tall ||| Mirror tall ||| simpleTabbed
+    onWorkspace "5" tabbedFirst $
+    normal
 
 tall = ResizableTall 1 (3/100) (34/55) []
 imLayout = withIM (1/8) (Role "buddy_list") (GridRatio (4/3) ||| simpleTabbed)
+normal = tall ||| Mirror tall ||| simpleTabbed
+tabbedFirst = simpleTabbed ||| tall ||| Mirror tall
 
 myHandleEventHook = docksEventHook <+> handleEventHook desktopConfig
 
