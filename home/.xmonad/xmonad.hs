@@ -56,7 +56,7 @@ myStartupHook = setWMName "LG3D"
     <+> spawnOnce "xsetroot -cursor_name left_ptr" 
     <+> spawnOnce "xbanish" 
     <+> spawnOnce "jetbrains-toolbox --minimize" 
-    <+> spawnOnce "copyq" 
+    <+> spawnOnce "clipit" 
     <+> spawnOnOnce "1" "firefox"
     <+> spawnOnOnce "1" myTerminal
     <+> spawnOnOnce "3" "pidgin" 
