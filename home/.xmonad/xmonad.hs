@@ -33,7 +33,7 @@ myFocusedBorderColor = "#e95420"
 
 myManageHook = composeOne
     [ isDialog                      -?> doCenterFloat
-    , className =? "copyq"          -?> doFloat
+    , className =? "Pidgin"         -?> doShift "3"
     ] <+> manageDocks <+> manageSpawn <+> manageHook desktopConfig
 
 myLayoutHook = avoidStruts $
