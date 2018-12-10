@@ -97,3 +97,4 @@ man() {
 
 # Machine-specific user configuration
 wmname LG3D
+export PATH="$PATH:$HOME/.cabal/bin"
