@@ -1,7 +1,7 @@
-Config { font = "-*-Fixed-Bold-R-Normal-*-19-*-*-*-*-*-*-*"
+Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
        , bgColor = "black"
        , fgColor = "grey"
-       , position = TopSize L 90 28
+       , position = TopSize L 90 18
        , commands = [ Run Cpu ["-L","3","-H","50","--normal","darkgreen","--high","darkred"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Swap [] 10
