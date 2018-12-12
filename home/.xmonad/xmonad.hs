@@ -49,6 +49,8 @@ tabbedFirst = simpleTabbed ||| tall ||| Mirror tall
 
 myHandleEventHook = docksEventHook <+> handleEventHook desktopConfig
 
+myModMask = mod4Mask
+
 myStartupHook = setWMName "LG3D" 
     <+> spawnOnce "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 0x000000 --height 18 --alpha 0 --monitor primary --iconspacing 5 --padding 5"
     <+> spawnOnce "nm-applet --sm-disable" 
@@ -72,7 +74,7 @@ conf =
     { args = ["-bg", "orange", "-fg", "black", "-xs", "1"]}
     desktopConfig
     { manageHook = myManageHook
-    , modMask = mod4Mask
+    , modMask = myModMask
     , startupHook = myStartupHook
     , layoutHook = myLayoutHook
     , handleEventHook = myHandleEventHook
@@ -81,13 +83,13 @@ conf =
     , normalBorderColor = myNormalBorderColor
     , focusedBorderColor = myFocusedBorderColor
     } `additionalKeys`
-        [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock; sleep 0.2; xset dpms force off")
-        , ((mod4Mask, xK_Print), spawn "scrot -u -e 'mv $f ~/Pictures'")
+        [ ((myModMask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock; sleep 0.2; xset dpms force off")
+        , ((myModMask, xK_Print), spawn "scrot -u -e 'mv $f ~/Pictures'")
         , ((0, xK_Print), spawn "scrot -e 'mv $f ~/Pictures'")
-        , ((mod4Mask, xK_u), focusUrgent)
-        , ((mod4Mask, xK_b), sendMessage ToggleStruts)
-        , ((mod4Mask .|. controlMask, xK_j), sendMessage MirrorShrink)
-        , ((mod4Mask .|. controlMask, xK_k), sendMessage MirrorExpand) 
+        , ((myModMask, xK_u), focusUrgent)
+        , ((myModMask, xK_b), sendMessage ToggleStruts)
+        , ((myModMask .|. controlMask, xK_j), sendMessage MirrorShrink)
+        , ((myModMask .|. controlMask, xK_k), sendMessage MirrorExpand) 
         , ((0, xF86XK_AudioPlay), spawn "playerctl play-pause")
         , ((0, xF86XK_AudioStop), spawn "playerctl stop")
         , ((0, xF86XK_AudioNext), spawn "playerctl next")
