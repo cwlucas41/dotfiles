@@ -26,6 +26,7 @@ import XMonad.Util.EZConfig
 
 import Graphics.X11.ExtraTypes.XF86
 
+myModMask = mod4Mask
 myTerminal = "urxvt"
 myBorderWidth = 3
 myNormalBorderColor = "#aea79f"
@@ -48,8 +49,6 @@ normal = tall ||| Mirror tall ||| simpleTabbed
 tabbedFirst = simpleTabbed ||| tall ||| Mirror tall
 
 myHandleEventHook = docksEventHook <+> handleEventHook desktopConfig
-
-myModMask = mod4Mask
 
 myStartupHook = setWMName "LG3D" 
     <+> spawnOnce "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 0x000000 --height 18 --alpha 0 --monitor primary --iconspacing 5 --padding 5"
