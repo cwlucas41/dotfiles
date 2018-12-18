@@ -82,7 +82,7 @@ conf =
     , normalBorderColor = myNormalBorderColor
     , focusedBorderColor = myFocusedBorderColor
     } `additionalKeys`
-        [ ((myModMask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock; sleep 0.2; xset dpms force off")
+        [ ((myModMask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
         , ((myModMask, xK_Print), spawn "scrot -u -e 'mv $f ~/Pictures'")
         , ((0, xK_Print), spawn "scrot -e 'mv $f ~/Pictures'")
         , ((myModMask, xK_u), focusUrgent)

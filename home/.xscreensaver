@@ -1,6 +1,6 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.34 for chrluc on Fri Jul 20 11:42:24 2018.
-# http://www.jwz.org/xscreensaver/
+# Written by xscreensaver-demo 5.36 for cwlucas41 on Tue Dec 18 00:45:46 2018.
+# https://www.jwz.org/xscreensaver/
 
 timeout:	0:10:00
 cycle:		0:10:00
@@ -24,11 +24,11 @@ fadeTicks:	20
 captureStderr:	True
 ignoreUninstalledPrograms:False
 font:		*-medium-r-*-140-*-m-*
-dpmsEnabled:	False
-dpmsQuickOff:	False
-dpmsStandby:	2:00:00
-dpmsSuspend:	2:00:00
-dpmsOff:	4:00:00
+dpmsEnabled:	True
+dpmsQuickOff:	True
+dpmsStandby:	0:01:00
+dpmsSuspend:	0:01:00
+dpmsOff:	0:00:00
 grabDesktopImages:  False
 grabVideoFrames:    False
 chooseRandomImages: False
@@ -258,10 +258,20 @@ programs:								      \
 - GL: 				winduprobot -root			    \n\
 - GL: 				splitflap -root				    \n\
 				testx11 -root				    \n\
+- GL: 				cubestack -root				    \n\
+- GL: 				cubetwist -root				    \n\
+- GL: 				discoball -root				    \n\
+- GL: 				dymaxionmap -root			    \n\
+- GL: 				energystream -root			    \n\
+- GL: 				hexstrut -root				    \n\
+- GL: 				hydrostat -root				    \n\
+- GL: 				raverhoop -root				    \n\
+- GL: 				splodesic -root				    \n\
+- GL: 				unicrud -root				    \n\
 
 
 pointerPollTime:    0:00:05
-pointerHysteresis:  10
+pointerHysteresis:  25
 windowCreationTimeout:0:00:30
 initialDelay:	0:00:00
 GetViewPortIsFullOfLies:False
