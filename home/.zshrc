@@ -66,7 +66,6 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.bin:$PATH"
 
 # Master user configuration
 export LANG=en_US.UTF-8
@@ -79,11 +78,11 @@ alias vi='vim'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias cdw='cd ~/workplace'
-alias tmux='\tmux attach-session -t 0 || \tmux new-session -s 0'
 
-alias so='source ~/.zshrc'
-alias virc='vim ~/.zshrc'
-
+tmux() {
+    local session=${1:-0}
+    command tmux attach-session -t $session || command tmux new-session -s $session
+}
 
 man() {
     LESS_TERMCAP_md=$'\e[01;31m' \
