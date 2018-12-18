@@ -51,15 +51,17 @@ tabbedFirst = simpleTabbed ||| tall ||| Mirror tall
 myHandleEventHook = docksEventHook <+> handleEventHook desktopConfig
 
 myStartupHook = setWMName "LG3D" 
+    <+> spawn "setxkbmap -option && setxkbmap -option altwin:swap_alt_win,ctrl:nocaps,shift:both_capslock" 
+    <+> spawn "xcape -e 'Control_L=Escape'" 
+    <+> spawn "xsetroot -solid '#000' -cursor_name left_ptr" 
+
     <+> spawnOnce "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 0x000000 --height 18 --alpha 0 --monitor primary --iconspacing 5 --padding 5"
     <+> spawnOnce "nm-applet --sm-disable" 
     <+> spawnOnce "xscreensaver -no-splash" 
-    <+> spawnOnce "xsetroot -cursor_name left_ptr" 
     <+> spawnOnce "xbanish" 
-    <+> spawnOnce "setxkbmap -option altwin:swap_alt_win -option ctrl:nocaps -option shift:both_capslock" 
-    <+> spawnOnce "xcape -e 'Control_L=Escape'" 
     <+> spawnOnce "jetbrains-toolbox --minimize" 
     <+> spawnOnce "clipit" 
+
     <+> spawnOnOnce "1" "firefox"
     <+> spawnOnOnce "1" myTerminal
     <+> spawnOnOnce "3" "pidgin" 
