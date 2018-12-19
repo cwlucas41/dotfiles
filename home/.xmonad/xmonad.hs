@@ -10,6 +10,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.SetWMName
+import XMonad.Hooks.EwmhDesktops
 
 import XMonad.Layout
 import XMonad.Layout.NoBorders
@@ -34,10 +35,11 @@ myFocusedBorderColor = "#e95420"
 
 myManageHook = composeOne
     [ isDialog                      -?> doCenterFloat
+    , isFullscreen                  -?> doFullFloat
     , className =? "Pidgin"         -?> doShift "3"
     ] <+> manageDocks <+> manageSpawn <+> manageHook desktopConfig
 
-myLayoutHook = avoidStruts $
+myLayoutHook = desktopLayoutModifiers $
     smartBorders $
     onWorkspace "3" imLayout $
     onWorkspace "5" tabbedFirst $
@@ -48,7 +50,7 @@ imLayout = withIM (1/8) (Role "buddy_list") (GridRatio (4/3) ||| simpleTabbed)
 normal = tall ||| Mirror tall ||| simpleTabbed
 tabbedFirst = simpleTabbed ||| tall ||| Mirror tall
 
-myHandleEventHook = docksEventHook <+> handleEventHook desktopConfig
+myHandleEventHook = docksEventHook <+> handleEventHook desktopConfig <+> fullscreenEventHook
 
 myStartupHook = setWMName "LG3D" 
     <+> spawn "setxkbmap -option && setxkbmap -option altwin:swap_alt_win,ctrl:nocaps,shift:both_capslock" 
@@ -105,5 +107,5 @@ main = do
         logHook = dynamicLogWithPP xmobarPP
             { ppOutput = hPutStrLn xmproc
             , ppTitle = xmobarColor "white" "" . shorten 75
-            }
+            } <+> logHook desktopConfig
     }
