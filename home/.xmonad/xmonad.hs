@@ -64,7 +64,7 @@ myStartupHook = setWMName "LG3D"
     <+> spawnOnce "jetbrains-toolbox --minimize" 
     <+> spawnOnce "clipit" 
 
-    <+> spawnOnOnce "1" "firefox"
+    <+> spawnOnOnce "1" "google-chrome"
     <+> spawnOnOnce "1" myTerminal
     <+> spawnOnOnce "3" "pidgin" 
     <+> spawnOnOnce "4" "thunderbird" 
