@@ -66,6 +66,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 export PATH="$HOME/bin:$PATH"
+export PATH="$PATH:$HOME/.lightsonplus"
 
 # Master user configuration
 export LANG=en_US.UTF-8
