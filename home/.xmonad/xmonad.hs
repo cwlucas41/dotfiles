@@ -16,7 +16,6 @@ import XMonad.Layout hiding ( (|||) )
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Tabbed
-import XMonad.Layout.ResizableTile
 import XMonad.Layout.IM
 import XMonad.Layout.Grid
 import XMonad.Layout.LayoutCombinators
@@ -47,7 +46,7 @@ myLayoutHook = desktopLayoutModifiers $
     onWorkspace "5" tabbedFirst $
     normal
 
-tall = ResizableTall 1 (3/100) (34/55) []
+tall = Tall 1 (3/100) (34/55)
 imLayout = withIM (1/8) (Role "buddy_list") (GridRatio (4/3) ||| simpleTabbed)
 normal = tall ||| Mirror tall ||| simpleTabbed ||| Full
 tabbedFirst = simpleTabbed ||| Full ||| tall ||| Mirror tall
@@ -94,10 +93,8 @@ conf =
         , ((0, xK_Print), spawn "scrot -e 'mv $f ~/Pictures'")
         , ((myModMask, xK_u), focusUrgent)
         , ((myModMask, xK_b), sendMessage ToggleStruts)
-        , ((myModMask .|. controlMask, xK_j), sendMessage MirrorShrink)
-        , ((myModMask .|. controlMask, xK_k), sendMessage MirrorExpand) 
-        , ((myModMask .|. altMask, xK_1), sendMessage $ JumpToLayout "ResizableTall") 
-        , ((myModMask .|. altMask, xK_2), sendMessage $ JumpToLayout "Mirror ResizableTall") 
+        , ((myModMask .|. altMask, xK_1), sendMessage $ JumpToLayout "Tall") 
+        , ((myModMask .|. altMask, xK_2), sendMessage $ JumpToLayout "Mirror Tall") 
         , ((myModMask .|. altMask, xK_3), sendMessage $ JumpToLayout "Tabbed Simplest") 
         , ((myModMask .|. altMask, xK_4), sendMessage $ JumpToLayout "Full") 
         , ((0, xF86XK_AudioPlay), spawn "playerctl play-pause")
