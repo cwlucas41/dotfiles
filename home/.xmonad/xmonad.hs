@@ -1,4 +1,4 @@
-import XMonad
+import XMonad hiding ( (|||) )
 
 
 import XMonad.Actions.SpawnOn
@@ -12,13 +12,14 @@ import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.EwmhDesktops
 
-import XMonad.Layout
+import XMonad.Layout hiding ( (|||) )
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.IM
 import XMonad.Layout.Grid
+import XMonad.Layout.LayoutCombinators
 
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
@@ -28,6 +29,7 @@ import XMonad.Util.EZConfig
 import Graphics.X11.ExtraTypes.XF86
 
 myModMask = mod4Mask
+altMask = mod1Mask
 myTerminal = "urxvt"
 myBorderWidth = 3
 myNormalBorderColor = "#aea79f"
@@ -47,8 +49,8 @@ myLayoutHook = desktopLayoutModifiers $
 
 tall = ResizableTall 1 (3/100) (34/55) []
 imLayout = withIM (1/8) (Role "buddy_list") (GridRatio (4/3) ||| simpleTabbed)
-normal = tall ||| Mirror tall ||| simpleTabbed
-tabbedFirst = simpleTabbed ||| tall ||| Mirror tall
+normal = tall ||| Mirror tall ||| simpleTabbed ||| Full
+tabbedFirst = simpleTabbed ||| Full ||| tall ||| Mirror tall
 
 myHandleEventHook = docksEventHook <+> handleEventHook desktopConfig <+> fullscreenEventHook
 
@@ -94,6 +96,10 @@ conf =
         , ((myModMask, xK_b), sendMessage ToggleStruts)
         , ((myModMask .|. controlMask, xK_j), sendMessage MirrorShrink)
         , ((myModMask .|. controlMask, xK_k), sendMessage MirrorExpand) 
+        , ((myModMask .|. altMask, xK_1), sendMessage $ JumpToLayout "ResizableTall") 
+        , ((myModMask .|. altMask, xK_2), sendMessage $ JumpToLayout "Mirror ResizableTall") 
+        , ((myModMask .|. altMask, xK_3), sendMessage $ JumpToLayout "Tabbed Simplest") 
+        , ((myModMask .|. altMask, xK_4), sendMessage $ JumpToLayout "Full") 
         , ((0, xF86XK_AudioPlay), spawn "playerctl play-pause")
         , ((0, xF86XK_AudioStop), spawn "playerctl stop")
         , ((0, xF86XK_AudioNext), spawn "playerctl next")
