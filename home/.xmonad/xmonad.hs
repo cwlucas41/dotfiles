@@ -19,6 +19,7 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.IM
 import XMonad.Layout.Grid
 import XMonad.Layout.LayoutCombinators
+import XMonad.Layout.Reflect
 
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
@@ -47,9 +48,10 @@ myLayoutHook = desktopLayoutModifiers $
     normal
 
 tall = Tall 1 (3/100) (34/55)
+wide =  Mirror $ reflectHoriz $ Tall 1 (3/100) (9/10)
 imLayout = withIM (1/8) (Role "buddy_list") (GridRatio (4/3) ||| simpleTabbed)
-normal = tall ||| Mirror tall ||| simpleTabbed ||| Full
-tabbedFirst = simpleTabbed ||| Full ||| tall ||| Mirror tall
+normal = tall ||| wide ||| simpleTabbed ||| Full
+tabbedFirst = simpleTabbed ||| Full ||| tall ||| wide 
 
 myHandleEventHook = docksEventHook <+> handleEventHook desktopConfig <+> fullscreenEventHook
 
@@ -94,7 +96,7 @@ conf =
         , ((myModMask, xK_u), focusUrgent)
         , ((myModMask, xK_b), sendMessage ToggleStruts)
         , ((myModMask .|. altMask, xK_1), sendMessage $ JumpToLayout "Tall") 
-        , ((myModMask .|. altMask, xK_2), sendMessage $ JumpToLayout "Mirror Tall") 
+        , ((myModMask .|. altMask, xK_2), sendMessage $ JumpToLayout "Mirror ReflectX Tall") 
         , ((myModMask .|. altMask, xK_3), sendMessage $ JumpToLayout "Tabbed Simplest") 
         , ((myModMask .|. altMask, xK_4), sendMessage $ JumpToLayout "Full") 
         , ((0, xF86XK_AudioPlay), spawn "playerctl play-pause")
