@@ -191,7 +191,7 @@ hide_edge_borders both
 
 # Focus and urgency
 no_focus [class="^.*"]
-focus_on_window_activation urgent
+focus_on_window_activation smart
 bindsym Mod4+Shift+u [urgent=latest] focus
 
 # Assignments
