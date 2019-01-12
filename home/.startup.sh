@@ -11,3 +11,4 @@ xscreensaver -no-splash &
 xbanish &
 jetbrains-toolbox --minimize &
 clipit &
+~/.lightsonplus/lightson+
