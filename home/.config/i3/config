@@ -211,6 +211,7 @@ bindsym Print exec "scrot -e 'mv $f ~/Pictures'"
 bindsym Control+1 exec "~/.screenlayout/layout-laptop"
 bindsym Control+2 exec "~/.screenlayout/layout-desk"
 bindsym Control+3 exec "~/.screenlayout/layout-conference"
+bindsym Control+4 exec "~/.screenlayout/layout-one"
 
 # Move workspaces left and right
 bindsym Mod4+Shift+Control+$left move workspace to output left
