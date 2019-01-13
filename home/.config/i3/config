@@ -201,7 +201,7 @@ assign [class="^Pidgin$"] 3
 exec ~/.startup.sh
 
 # Screensaver
-bindsym Mod4+Shift+z exec "playerctl pause && xscreensaver-command -lock"
+bindsym Mod4+Shift+z exec "playerctl pause; xscreensaver-command -lock"
 
 # Print screen
 bindsym Mod4+Print exec "scrot -u -e 'mv $f ~/Pictures'"
