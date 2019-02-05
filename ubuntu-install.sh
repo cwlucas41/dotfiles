@@ -38,5 +38,6 @@ sudo apt install \
 # packages that must be manual (for now)
 echo "
 The following must be installed manually:
-	playerctl
+    playerctl
+    xbanish
 "
