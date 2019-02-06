@@ -13,6 +13,7 @@ sudo apt update
 sudo apt install \
 	arandr \
 	blueman \
+    build-essential \
 	clipit \
 	feh \
 	git \
@@ -21,11 +22,12 @@ sudo apt install \
 	htop \
 	i3 \
 	jq \
+    libxi-dev \
+    libxt-dev \
 	moreutils \
 	pavucontrol \
 	pidgin \
 	pidgin-libnotify \
-	powerline \
 	rsync \
 	rxvt-unicode-256color \
 	scrot \
@@ -39,5 +41,9 @@ sudo apt install \
 echo "
 The following must be installed manually:
     playerctl
+    powerline-fonts
     xbanish
 "
+
+# set preferred shell
+sudo chsh -s /bin/zsh $USER
