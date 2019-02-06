@@ -11,31 +11,32 @@ rm keyring.deb
 # packages that can be auto installed
 sudo apt update
 sudo apt install \
-	arandr \
-	blueman \
+    arandr \
+    blueman \
     build-essential \
-	clipit \
-	feh \
-	git \
-	google-chrome-stable \
-	homesick \
-	htop \
-	i3 \
-	jq \
-    libxi-dev \
-    libxt-dev \
-	moreutils \
-	pavucontrol \
-	pidgin \
-	pidgin-libnotify \
-	rsync \
-	rxvt-unicode-256color \
-	scrot \
-	spotify-client \
-	tmux \
-	xcape \
-	xscreensaver \
-	zsh
+    clipit \
+    feh \
+    git \
+    google-chrome-stable \
+    homesick \
+    htop \
+    i3 \
+    jq \
+    libreoffice \
+    libxi-dev `# xbanish dependency` \
+    libxt-dev `# xbanish dependency` \
+    moreutils \
+    pavucontrol \
+    pidgin \
+    pidgin-libnotify \
+    rsync \
+    rxvt-unicode-256color \
+    scrot \
+    spotify-client \
+    tmux \
+    xcape \
+    xscreensaver \
+    zsh
 
 # packages that must be manual (for now)
 echo "
