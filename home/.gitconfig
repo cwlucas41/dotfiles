@@ -1,15 +1,15 @@
 [user]
-	email = chris@chriswlucas.com
-	name = Chris Lucas
+    email = chris@chriswlucas.com
+    name = Chris Lucas
 [color]
-        ui = auto
+    ui = auto
 [core]
-        pager = less -FMRiX
-        excludesfile = ~/.gitignore_global
-	autocrlf = input
+    pager = less -FMRiX
+    excludesfile = ~/.gitignore_global
+    autocrlf = input
 [push]
-        default = simple
+    default = simple
 [alias]
-        dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+    dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
 [credential]
-	helper = cache
+    helper = cache
