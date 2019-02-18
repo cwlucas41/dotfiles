@@ -22,7 +22,6 @@ sudo apt install \
     feh \
     git \
     google-chrome-stable \
-    homesick \
     htop \
     i3 \
     jq \
