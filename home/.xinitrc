@@ -1,3 +1,1 @@
-~/.bin/xnormal
-
-exec dbus-launch xmonad
+xrdb -merge ~/.Xresources

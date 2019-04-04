@@ -38,6 +38,7 @@ sudo apt install \
     spotify-client \
     tmux \
     xcape \
+    xclip \
     xscreensaver \
     zsh
 
@@ -53,8 +54,8 @@ The following must be installed manually:
 sudo chsh -s /bin/zsh $USER
 
 # Set up udev keyboard rule
-echo "SUBSYSTEM==\"input\", ACTION==\"add\", RUN+=\"/bin/su $USER --shell=/bin/bash -c $HOME/.bin/keyboard\"" |
-    sudo tee /etc/udev/rules.d/99-usb-keyboard.rules > /dev/null
-sudo chmod +x /etc/udev/rules.d/99-usb-keyboard.rules
-sudo udevadm control --reload
-udevadm trigger
+#echo "SUBSYSTEM==\"input\", ACTION==\"add\", RUN+=\"/bin/bash $HOME/.bin/keyboard\"" |
+#    sudo tee /etc/udev/rules.d/99-usb-keyboard.rules > /dev/null
+#sudo chmod +x /etc/udev/rules.d/99-usb-keyboard.rules
+#sudo udevadm control --reload
+#udevadm trigger

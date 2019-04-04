@@ -1,7 +1,5 @@
 #!/bin/bash
 (
-    sleep 1
-
-    DISPLAY=:0 setxkbmap -option altwin:swap_alt_win,ctrl:nocaps,shift:both_capslock
+    setxkbmap -option altwin:swap_alt_win,ctrl:nocaps,shift:both_capslock
     xcape -e 'Control_L=Escape'
 ) &
