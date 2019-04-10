@@ -222,6 +222,7 @@ bindsym Control+Shift+grave exec "~/.bin/keyboard"
 
 # Screensaver
 bindsym Mod4+Shift+z exec "playerctl pause; xscreensaver-command -lock"
+bindsym Mod4+Shift+Control+z exec "systemctl hybrid-sleep"
 
 # Print screen
 bindsym Mod4+Print exec "scrot -u -e 'mv $f ~/Pictures'"
@@ -250,3 +251,15 @@ bindsym XF86AudioPlay exec "playerctl play-pause"
 bindsym XF86AudioStop exec "playerctl stop"
 bindsym XF86AudioNext exec "playerctl next"
 bindsym XF86AudioPrev exec "playerctl previous"
+
+# Backlight controls
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
+bindsym XF86MonBrightnessDown exec "xbacklight -inc -5"
+bindsym Shift+XF86MonBrightnessUp exec "xbacklight -set 75"
+bindsym Shift+XF86MonBrightnessDown exec "xbacklight -set 25"
+
+# Volume controls
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+
