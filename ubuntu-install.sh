@@ -37,6 +37,8 @@ sudo apt install \
     scrot \
     spotify-client \
     tmux \
+    vim \
+    xbacklight \
     xcape \
     xclip \
     xscreensaver \
