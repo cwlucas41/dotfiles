@@ -8,7 +8,7 @@
 
 general {
         colors = true
-        interval = 5
+        interval = 1
 }
 
 order += cpu_usage
@@ -16,8 +16,10 @@ order += "load"
 order += "disk /"
 order += "wireless _first_"
 order += "ethernet _first_"
+order += "volume master"
 order += "battery all"
-order += "tztime local"
+order += "tztime date"
+order += "tztime time"
 
 wireless _first_ {
         format_up = "WiFi: %quality at %essid"
@@ -31,15 +33,23 @@ ethernet _first_ {
 }
 
 battery all {
-        format = "Batt: %percentage"
+        format = "Batt: %status %percentage %emptytime"
+        format_down = "No battery"
+        status_chr = "⚡"
+        status_bat = ""
+        status_full = "☻ FULL"
         hide_seconds = true
         integer_battery_capacity = true
         low_threshold = 20
         threshold_type = percentage
 }
 
-tztime local {
-        format = "  %D  %I:%M:%S %p  "
+tztime date {
+        format = "Date: %D wk:%U"
+}
+
+tztime time {
+        format = "Time: %I:%M:%S %p %Z "
 }
 
 cpu_usage {
@@ -52,4 +62,10 @@ load {
 
 disk "/" {
         format = "Disk: %avail avail"
+}
+
+volume master {
+        format = "Volume: %volume"
+        format_muted = "Volume: M (%volume)"
+        device = "pulse"
 }
