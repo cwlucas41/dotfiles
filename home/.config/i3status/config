@@ -37,7 +37,7 @@ battery all {
         format_down = "No battery"
         status_chr = "⚡"
         status_bat = ""
-        status_full = "☻ FULL"
+        status_full = ""
         hide_seconds = true
         integer_battery_capacity = true
         low_threshold = 20
