@@ -176,6 +176,24 @@ mode "resize" {
 
 bindsym Mod4+r mode "resize"
 
+mode "moveit" {
+        bindsym Up move up 25px
+        bindsym Left move left 25px
+        bindsym Down move down 25px
+        bindsym Right move right 25px
+
+        bindsym $up move up 25px
+        bindsym $left move left 25px
+        bindsym $down move down 25px
+        bindsym $right move right 25px
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Mod4+m mode "default"
+}
+
+bindsym Mod4+m focus floating; mode "moveit"
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -190,8 +208,7 @@ for_window [class="^.*"] border normal 2
 hide_edge_borders both
 
 # Focus and urgency
-no_focus [class="^Pidgin$"]
-focus_on_window_activation urgent
+focus_on_window_activation focus
 bindsym Mod4+Shift+u [urgent=latest] focus
 
 # Workspace on screen
@@ -205,10 +222,14 @@ workspace 5 output DP2 eDP1
 assign [class="^Pidgin$"] 3
 
 # Exec my startup programs
-exec ~/.startup.sh
+exec ~/.bin/startup
+
+# Keyboard
+bindsym Control+Shift+grave exec "~/.bin/keyboard"
 
 # Screensaver
 bindsym Mod4+Shift+z exec "playerctl pause; xscreensaver-command -lock"
+bindsym Mod4+Shift+Control+z exec "systemctl hybrid-sleep"
 
 # Print screen
 bindsym Mod4+Print exec "scrot -u -e 'mv $f ~/Pictures'"
@@ -218,7 +239,15 @@ bindsym Print exec "scrot -e 'mv $f ~/Pictures'"
 bindsym Control+1 exec "~/.screenlayout/layout-laptop"
 bindsym Control+2 exec "~/.screenlayout/layout-desk"
 bindsym Control+3 exec "~/.screenlayout/layout-conference"
-bindsym Control+4 exec "~/.screenlayout/layout-one"
+bindsym Control+4 exec "~/.screenlayout/layout-desk-primary"
+bindsym Control+5 exec "~/.screenlayout/layout-desk-secondary"
+
+# Workspace screen prefs
+workspace 1 output DP1-2 eDP1
+workspace 2 output DP1-1-8 eDP1
+workspace 3 output DP1-2 eDP1
+workspace 4 output DP1-2 eDP1
+workspace 5 output DP1-2 eDP1
 
 # Move workspaces left and right
 bindsym Mod4+Shift+Control+$left move workspace to output left
@@ -229,3 +258,15 @@ bindsym XF86AudioPlay exec "playerctl play-pause"
 bindsym XF86AudioStop exec "playerctl stop"
 bindsym XF86AudioNext exec "playerctl next"
 bindsym XF86AudioPrev exec "playerctl previous"
+
+# Backlight controls
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
+bindsym XF86MonBrightnessDown exec "xbacklight -inc -5"
+bindsym Shift+XF86MonBrightnessUp exec "xbacklight -set 75"
+bindsym Shift+XF86MonBrightnessDown exec "xbacklight -set 25"
+
+# Volume controls
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+
