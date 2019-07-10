@@ -34,8 +34,7 @@ sudo apt install \
     libxt-dev `# xbanish dependency` \
     moreutils \
     pavucontrol \
-    pidgin \
-    pidgin-libnotify \
+    policykit-1-gnome
     rsync \
     rxvt-unicode-256color \
     scrot \
