@@ -39,6 +39,7 @@ sudo apt install \
     rxvt-unicode-256color \
     scrot \
     spotify-client \
+    tldr \
     tmux \
     vim \
     xbacklight \
