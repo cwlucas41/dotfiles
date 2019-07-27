@@ -10,6 +10,9 @@ eclipse*/
 *.iml
 .idea/
 
+# VSCode
+.vscode
+
 # generated files
 /build
 /generated*/
