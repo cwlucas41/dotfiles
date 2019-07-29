@@ -34,8 +34,9 @@ sudo apt install \
     libxt-dev `# xbanish dependency` \
     moreutils \
     pavucontrol \
-    policykit-1-gnome
+    policykit-1-gnome \
     py3status \
+    python3-pydbus \
     rsync \
     rxvt-unicode-256color \
     scrot \
