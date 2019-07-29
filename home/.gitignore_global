@@ -16,7 +16,6 @@ eclipse*/
 # generated files
 /build
 /generated*/
-/*bin/
 
 # Java Class Files
 *.class
