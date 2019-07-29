@@ -35,6 +35,7 @@ sudo apt install \
     moreutils \
     pavucontrol \
     policykit-1-gnome
+    py3status \
     rsync \
     rxvt-unicode-256color \
     scrot \

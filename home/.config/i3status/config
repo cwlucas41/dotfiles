@@ -11,13 +11,15 @@ general {
         interval = 1
 }
 
+order += mpris
 order += cpu_usage
 order += "load"
+order += "sysdata"
 order += "disk /"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "volume master"
-order += "battery all"
+order += "battery_level"
 order += "tztime date"
 order += "tztime time"
 
@@ -32,16 +34,15 @@ ethernet _first_ {
         format_down = ""
 }
 
-battery all {
-        format = "Batt: %status %percentage %emptytime"
-        format_down = "No battery"
-        status_chr = "⚡"
-        status_bat = ""
-        status_full = ""
-        hide_seconds = true
-        integer_battery_capacity = true
-        low_threshold = 20
-        threshold_type = percentage
+battery_level {
+    battery_id = all
+    format = "Batt: {percent}% {time_remaining}"
+    hide_seconds = True
+    cache_timeout = 5
+    notify_low_level = True
+    threshold_degraded = 20
+    threshold_bad = 10
+    measurement_mode = sys
 }
 
 tztime date {
@@ -61,11 +62,20 @@ load {
 }
 
 disk "/" {
-        format = "Disk: %avail avail"
+        format = "Disk: %avail"
 }
 
 volume master {
         format = "Volume: %volume"
         format_muted = "Volume: M (%volume)"
         device = "pulse"
+}
+
+sysdata {
+    format = "Mem: {mem_used_percent}%"
+}
+
+mpris {
+    format = "{player}: [['{title}' by {artist}]|[{title}]]"
+    format_none = ""
 }
