@@ -16,6 +16,9 @@ rm keyring.deb
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 
+# System 76 repo
+sudo apt-add-repository -y ppa:system76-dev/stable
+
 # packages that can be auto installed
 sudo apt update
 sudo apt install \
@@ -39,6 +42,7 @@ sudo apt install \
     rxvt-unicode-256color \
     scrot \
     spotify-client \
+    system76-driver \
     tldr \
     tmux \
     vim \
