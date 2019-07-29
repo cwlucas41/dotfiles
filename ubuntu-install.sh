@@ -36,6 +36,9 @@ sudo apt install \
     libxi-dev `# xbanish dependency` \
     libxt-dev `# xbanish dependency` \
     moreutils \
+    network-manager-openvpn \
+    network-manager-openvpn-gnome \
+    openvpn \
     pavucontrol \
     policykit-1-gnome
     py3status \
