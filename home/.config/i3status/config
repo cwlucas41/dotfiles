@@ -18,7 +18,8 @@ order += "sysdata"
 order += "disk /"
 order += "wireless _first_"
 order += "ethernet _first_"
-order += mpris
+# order += mpris
+order += spotify
 order += "volume master"
 order += "battery_level"
 order += "tztime date"
@@ -36,7 +37,7 @@ ethernet _first_ {
 
 battery_level {
     battery_id = all
-    format = "Batt: {percent}%"
+    format = "Batt: {percent}% {time_remaining}"
     hide_seconds = True
     cache_timeout = 5
     notify_low_level = True
@@ -73,6 +74,13 @@ volume master {
 
 sysdata {
     format = "Mem: {mem_used_percent}%"
+}
+
+spotify {
+    format = "'{title}' by {artist}"
+    format_down = ""
+    format_stopped = ""
+    color_good = "#00FF00"
 }
 
 mpris {
