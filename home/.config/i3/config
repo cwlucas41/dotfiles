@@ -254,10 +254,10 @@ bindsym Mod4+Shift+Control+$left move workspace to output left
 bindsym Mod4+Shift+Control+$right move workspace to output right
 
 # Playerctl controls
-bindsym XF86AudioPlay exec "playerctl play-pause"
-bindsym XF86AudioStop exec "playerctl stop"
-bindsym XF86AudioNext exec "playerctl next"
-bindsym XF86AudioPrev exec "playerctl previous"
+bindsym XF86AudioPlay exec "playerctl play-pause && sleep 0.01 && killall -USR1 py3status"
+bindsym XF86AudioStop exec "playerctl stop && sleep 0.01 && killall -USR1 py3status"
+bindsym XF86AudioNext exec "playerctl next && sleep 0.01 && killall -USR1 py3status"
+bindsym XF86AudioPrev exec "playerctl previous && sleep 0.01 && killall -USR1 py3status"
 
 # Backlight controls
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
@@ -266,7 +266,7 @@ bindsym Shift+XF86MonBrightnessUp exec "xbacklight -set 75"
 bindsym Shift+XF86MonBrightnessDown exec "xbacklight -set 25"
 
 # Volume controls
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
-bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
-bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5% && sleep 0.01 && killall -USR1 py3status"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5% && sleep 0.01 && killall -USR1 py3status"
+bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle && sleep 0.01 && killall -USR1 py3status"
 

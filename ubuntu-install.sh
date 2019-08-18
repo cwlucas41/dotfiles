@@ -3,8 +3,8 @@
 # To be run *after* cloning and linking the repo
 
 # Setup Spotify
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
-echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+wget -q -O - https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
 # Setup i3
 /usr/lib/apt/apt-helper download-file http://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2019.02.01_all.deb keyring.deb SHA256:176af52de1a976f103f9809920d80d02411ac5e763f695327de9fa6aff23f416
@@ -40,8 +40,9 @@ sudo apt install \
     network-manager-openvpn-gnome \
     openvpn \
     pavucontrol \
-    policykit-1-gnome
+    policykit-1-gnome \
     py3status \
+    python3-pydbus \
     rsync \
     rxvt-unicode-256color \
     scrot \
