@@ -18,6 +18,7 @@ sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc
 
 # packages that can be auto installed
 sudo apt update
+sudo apt upgrade
 sudo apt install \
     arandr \
     blueman \
