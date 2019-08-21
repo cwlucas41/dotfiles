@@ -21,6 +21,7 @@ sudo apt-add-repository -y ppa:system76-dev/stable
 
 # packages that can be auto installed
 sudo apt update
+sudo apt upgrade
 sudo apt install \
     arandr \
     blueman \
