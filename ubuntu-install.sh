@@ -51,14 +51,6 @@ sudo apt install \
     xscreensaver \
     zsh
 
-# packages that must be manual (for now)
-echo "
-The following must be installed manually:
-    playerctl
-    powerline-fonts
-    xbanish
-"
-
 # set preferred shell
 sudo chsh -s /bin/zsh $USER
 
@@ -68,3 +60,12 @@ sudo chsh -s /bin/zsh $USER
 #sudo chmod +x /etc/udev/rules.d/99-usb-keyboard.rules
 #sudo udevadm control --reload
 #udevadm trigger
+
+# packages that must be manual (for now)
+echo "
+The following must be installed manually:
+    playerctl           https://github.com/acrisci/playerctl/releases
+    powerline-fonts     https://github.com/powerline/fonts
+    xbanish             https://github.com/jcs/xbanish/releases
+"
+
