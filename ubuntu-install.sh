@@ -54,6 +54,9 @@ sudo apt install \
 # set preferred shell
 sudo chsh -s /bin/zsh $USER
 
+# set preferred browser
+sudo update-alternatives --set x-www-browser $(which google-chrome-stable)
+
 # Set up udev keyboard rule
 #echo "SUBSYSTEM==\"input\", ACTION==\"add\", RUN+=\"/bin/bash $HOME/.bin/keyboard\"" |
 #    sudo tee /etc/udev/rules.d/99-usb-keyboard.rules > /dev/null
