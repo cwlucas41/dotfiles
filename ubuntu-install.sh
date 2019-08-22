@@ -3,7 +3,7 @@
 # To be run *after* cloning and linking the repo
 
 # Setup Spotify
-wget -q -O - https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
+wget -qO - https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
 # Setup i3
@@ -13,8 +13,13 @@ echo "deb http://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-relea
 rm keyring.deb
 
 # Setup chrome
-wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+wget -qO - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+
+# Setup vscode
+wget -qO - https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
 
 # packages that can be auto installed
 sudo apt update
@@ -24,6 +29,7 @@ sudo apt install \
     blueman \
     build-essential \
     clipit \
+    code \
     feh \
     git \
     google-chrome-stable \
