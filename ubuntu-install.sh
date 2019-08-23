@@ -36,9 +36,11 @@ sudo apt install \
     build-essential \
     clipit \
     code \
+    compton \
     feh \
     git \
     google-chrome-stable \
+    hsetroot \
     htop \
     i3 \
     jq \
@@ -71,7 +73,7 @@ sudo apt install \
 sudo snap install \
     bitwarden \
     bw
-    
+
 # set preferred shell
 sudo chsh -s /bin/zsh $USER
 
