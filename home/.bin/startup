@@ -1,8 +1,10 @@
 # system configuration
-xsetroot -solid '#000' -cursor_name left_ptr &
+xsetroot -cursor_name left_ptr &
+hsetroot -solid '#000000'
 stty -ixon
 
 # startup programs
+compton --config=.config/compton/config -d :0 &
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 nm-applet --sm-disable &
 blueman-applet &
