@@ -22,9 +22,6 @@ Ubuntu 18.04:
     ```
 1. Complete the configuration
     ```
-    # system configuration
     homesick link dotfiles
-    homesick cd dotfiles
-    ./ubuntu-install.sh
-    exit
+    homesick exec dotfiles ./ubuntu-install.sh
     ```

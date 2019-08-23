@@ -1,4 +1,6 @@
 #!/bin/bash
+set -x
+
 # Script idempotently installs dependencies and configures system
 # To be run *after* cloning and linking the repo
 
@@ -58,6 +60,11 @@ sudo apt install \
     xscreensaver \
     zsh
 
+# Install snaps
+sudo snap install \
+    bitwarden \
+    bw
+    
 # set preferred shell
 sudo chsh -s /bin/zsh $USER
 
