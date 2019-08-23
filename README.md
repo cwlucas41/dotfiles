@@ -4,16 +4,24 @@
 
 ### Install instructions
 Ubuntu 18.04:
-```
-# dependency
-sudo apt install -y homesick
+1. Setup
+    ```
+    # dependency
+    sudo apt install -y homesick
 
-# dotfile setup
-homesick clone https://github.com/cwlucas41/dotfiles.git dotfiles
-homesick link dotfiles
+    # repository setup
+    homesick clone https://github.com/cwlucas41/dotfiles.git dotfiles
+    homesick cd dotfiles
 
-# system configuration
-homesick cd dotfiles
-./ubuntu-install.sh
-exit
-```
+    # Show available branches
+    homesick exec dotfiles git branch
+    ```
+1. Checkout the correct branch for the machine
+    ```
+    homesick exec dotfiles git checkout <branch>
+    ```
+1. Complete the configuration
+    ```
+    homesick link dotfiles
+    homesick exec dotfiles ./ubuntu-install.sh
+    ```
