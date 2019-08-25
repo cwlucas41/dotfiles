@@ -78,6 +78,8 @@ export BROWSER='/usr/bin/google-chrome'
 
 alias vi='vim'
 alias ls='ls --color=auto'
+alias ll='ls -la'
+alias l.='ls -d .*'
 alias grep='grep --color=auto'
 alias cdw='cd ~/workplace'
 alias bwul='export BW_SESSION="$(bw unlock --raw)"'
