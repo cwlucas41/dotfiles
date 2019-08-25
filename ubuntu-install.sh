@@ -80,6 +80,11 @@ sudo chsh -s /bin/zsh $USER
 # set preferred browser
 sudo update-alternatives --set x-www-browser $(which google-chrome-stable)
 
+# create expected dirs
+mkdir -p "$HOME/workplace"
+mkdir -p "$HOME/.ssh"
+chmod 700 "$HOME/.ssh"
+
 # Set up udev keyboard rule
 #echo "SUBSYSTEM==\"input\", ACTION==\"add\", RUN+=\"/bin/bash $HOME/.bin/keyboard\"" |
 #    sudo tee /etc/udev/rules.d/99-usb-keyboard.rules > /dev/null
@@ -87,11 +92,11 @@ sudo update-alternatives --set x-www-browser $(which google-chrome-stable)
 #sudo udevadm control --reload
 #udevadm trigger
 
-# packages that must be manual (for now)
 echo "
-The following must be installed manually:
+The following must be installed/configured manually:
     playerctl           https://github.com/acrisci/playerctl/releases
     powerline-fonts     https://github.com/powerline/fonts
     xbanish             https://github.com/jcs/xbanish/releases
+    ssh keys
 "
 

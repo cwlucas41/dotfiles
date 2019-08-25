@@ -80,6 +80,7 @@ alias vi='vim'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias cdw='cd ~/workplace'
+alias bwul='export BW_SESSION="$(bw unlock --raw)"'
 
 tmux() {
     local session=${1:-0}
