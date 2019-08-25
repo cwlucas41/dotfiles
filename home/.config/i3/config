@@ -215,10 +215,10 @@ bindsym Mod4+Shift+u [urgent=latest] focus
 assign [class="^Pidgin$"] 3
 
 # Exec my startup programs
-exec ~/.bin/startup
+exec ~/bin/startup
 
 # Keyboard
-bindsym Control+Shift+grave exec "~/.bin/keyboard"
+bindsym Control+Shift+grave exec "~/bin/keyboard"
 
 # Screensaver
 bindsym Mod4+Shift+z exec "playerctl pause; xscreensaver-command -lock"

@@ -65,7 +65,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH="$HOME/bin:$HOME/.bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export PATH="$PATH:$HOME/.lightsonplus"
 
 # Master user configuration

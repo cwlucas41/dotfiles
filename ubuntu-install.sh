@@ -79,7 +79,7 @@ mkdir -p "$HOME/.ssh"
 chmod 700 "$HOME/.ssh"
 
 # Set up udev keyboard rule
-#echo "SUBSYSTEM==\"input\", ACTION==\"add\", RUN+=\"/bin/bash $HOME/.bin/keyboard\"" |
+#echo "SUBSYSTEM==\"input\", ACTION==\"add\", RUN+=\"/bin/bash $HOME/bin/keyboard\"" |
 #    sudo tee /etc/udev/rules.d/99-usb-keyboard.rules > /dev/null
 #sudo chmod +x /etc/udev/rules.d/99-usb-keyboard.rules
 #sudo udevadm control --reload
