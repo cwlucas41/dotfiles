@@ -86,11 +86,11 @@ mkdir -p "$HOME/.ssh"
 chmod 700 "$HOME/.ssh"
 
 # Set up udev keyboard rule
-#echo "SUBSYSTEM==\"input\", ACTION==\"add\", RUN+=\"/bin/bash $HOME/bin/keyboard\"" |
-#    sudo tee /etc/udev/rules.d/99-usb-keyboard.rules > /dev/null
-#sudo chmod +x /etc/udev/rules.d/99-usb-keyboard.rules
-#sudo udevadm control --reload
-#udevadm trigger
+cat << EOF | sudo tee /etc/udev/rules.d/99-usb-keyboard.rules > /dev/null
+ACTION=="add", SUBSYSTEM=="usbmisc", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c24d", RUN+="/bin/su $USER -c '/bin/cat $HOME/bin/keyboard | /usr/bin/at now'"
+EOF
+sudo udevadm control --reload
+udevadm trigger
 
 echo "
 The following must be installed/configured manually:
