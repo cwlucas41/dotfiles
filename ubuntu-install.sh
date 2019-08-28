@@ -28,8 +28,8 @@ rm packages.microsoft.gpg
 sudo apt update
 sudo apt upgrade
 sudo apt install \
-    at \
     arandr \
+    at \
     blueman \
     build-essential \
     clipit \
@@ -66,7 +66,9 @@ sudo apt install \
 # Install snaps
 sudo snap install \
     bitwarden \
-    bw
+    bw \
+    discord \
+    slack
 
 # set preferred shell
 sudo chsh -s /bin/zsh $USER
