@@ -64,6 +64,7 @@ sudo apt install \
     zsh
 
 # Install snaps
+sudo snap refresh
 sudo snap install \
     bitwarden \
     bw \
