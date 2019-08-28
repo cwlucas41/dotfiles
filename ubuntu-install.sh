@@ -67,7 +67,9 @@ sudo apt install \
 sudo snap install \
     bitwarden \
     bw \
-    discord \
+    discord
+
+sudo snap install --classic \
     slack
 
 # set preferred shell
