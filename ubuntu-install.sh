@@ -49,6 +49,7 @@ sudo apt install \
     rsync \
     rxvt-unicode-256color \
     scrot \
+    ssmtp \
     tldr \
     tmux \
     vim \
