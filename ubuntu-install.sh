@@ -14,6 +14,9 @@ rm keyring.deb
 wget -qO - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
 
+# Setup peek
+sudo add-apt-repository ppa:peek-developers/stable
+
 # Setup vscode
 wget -qO - https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
@@ -43,6 +46,7 @@ sudo apt install \
     libxt-dev `# xbanish dependency` \
     moreutils \
     pavucontrol \
+    peek \
     policykit-1-gnome \
     py3status \
     python3-pydbus \
