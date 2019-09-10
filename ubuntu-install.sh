@@ -45,6 +45,7 @@ sudo apt install \
     libxi-dev `# xbanish dependency` \
     libxt-dev `# xbanish dependency` \
     moreutils \
+    needrestart \
     pavucontrol \
     peek \
     policykit-1-gnome \
