@@ -23,9 +23,10 @@ sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
 rm packages.microsoft.gpg
 
-# packages that can be auto installed
-sudo apt update
-sudo apt upgrade
+# Upgrade from all sources
+upgrade-all
+
+# Apt packages that can be auto installed
 sudo apt install \
     arandr \
     at \
@@ -65,7 +66,6 @@ sudo apt install \
     zsh
 
 # Install snaps
-sudo snap refresh
 sudo snap install \
     bitwarden \
     bw \
