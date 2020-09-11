@@ -5,7 +5,7 @@ set -x
 # To be run *after* cloning and linking the repo
 
 # Setup i3
-/usr/lib/apt/apt-helper download-file http://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2019.02.01_all.deb keyring.deb SHA256:176af52de1a976f103f9809920d80d02411ac5e763f695327de9fa6aff23f416
+/usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2020.02.03_all.deb keyring.deb SHA256:c5dd35231930e3c8d6a9d9539c846023fe1a08e4b073ef0d2833acd815d80d48
 sudo dpkg -i ./keyring.deb
 echo "deb http://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" | sudo tee /etc/apt/sources.list.d/sur5r-i3.list
 rm keyring.deb
@@ -58,6 +58,7 @@ sudo apt install \
     ssmtp \
     tldr \
     tmux \
+    tree \
     vim \
     xbacklight \
     xcape \
@@ -93,11 +94,9 @@ EOF
 sudo udevadm control --reload
 udevadm trigger
 
-echo "
-The following must be installed/configured manually:
-    playerctl           https://github.com/acrisci/playerctl/releases
-    powerline-fonts     https://github.com/powerline/fonts
-    xbanish             https://github.com/jcs/xbanish/releases
-    ssh keys
-"
+echo "\nThe following must be installed/configured manually:"
+echo "    ssh keys"
+command -v playerctl            || echo "    playerctl           https://github.com/acrisci/playerctl/releases"
+command -v xbanish              || echo "    xbanish             https://github.com/jcs/xbanish/releases"
+fc-list | grep -qi "powerline"  || echo "    powerline-fonts     https://github.com/powerline/fonts"
 

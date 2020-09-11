@@ -4,6 +4,7 @@
 sleep 1
 
 # configure keyboard
-export DISPLAY=:0
+xhost +local:
+export DISPLAY=:1.0
 setxkbmap -option altwin:swap_alt_win,ctrl:nocaps,shift:both_capslock
-xcape -e 'Control_L=Escape'
+# xcape -e 'Control_L=Escape'
