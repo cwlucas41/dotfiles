@@ -61,8 +61,6 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh-custom/
 plugins=(
   git
   vi-mode
-  zsh-autosuggestions
-  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
