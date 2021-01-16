@@ -18,12 +18,10 @@ order += "sysdata"
 order += "disk /"
 order += "wireless _first_"
 order += "ethernet _first_"
-# order += mpris
-order += spotify
 order += "volume master"
 order += "battery_level"
-order += "tztime date"
-order += "tztime time"
+order += "tztime utc"
+order += "tztime local"
 
 wireless _first_ {
         format_up = "W:%quality at %essid"
@@ -46,12 +44,13 @@ battery_level {
     measurement_mode = sys
 }
 
-tztime date {
-        format = " %D wk:%U "
+tztime utc {
+        format = " %T %Z "
+        timezone = "Etc/UTC"
 }
 
-tztime time {
-        format = " %I:%M:%S %p %Z "
+tztime local {
+        format = " %F %I:%M:%S %p %Z "
 }
 
 cpu_usage {
@@ -74,17 +73,4 @@ volume master {
 
 sysdata {
     format = "Mem: {mem_used_percent}%"
-}
-
-spotify {
-    format = "'{title}' by {artist}"
-    format_down = ""
-    format_stopped = ""
-    color_good = "#00FF00"
-}
-
-mpris {
-    format = "{player}: [['{title}' by {artist}]|[{title}]]"
-    format_none = ""
-    color_good = "#00FF00"
 }

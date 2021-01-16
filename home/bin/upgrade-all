@@ -1,0 +1,11 @@
+#!/bin/sh
+set -x
+
+# Apt
+echo '\e[32mUpgrading apt\e[0m'
+sudo apt update
+sudo apt upgrade
+
+# Snap
+echo '\e[32mRefreshing snap\e[0m'
+sudo snap refresh
