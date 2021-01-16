@@ -14,8 +14,9 @@ rm keyring.deb
 wget -qO - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
 
-# Setup peek
-sudo add-apt-repository ppa:peek-developers/stable
+# Setup spotify
+wget -qO - https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add -
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
 # Setup vscode
 wget -qO - https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -48,13 +49,13 @@ sudo apt install \
     moreutils \
     needrestart \
     pavucontrol \
-    peek \
     policykit-1-gnome \
     py3status \
     python3-pydbus \
     rsync \
     rxvt-unicode-256color \
     scrot \
+    spotify-client \
     ssmtp \
     tldr \
     tmux \
