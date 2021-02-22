@@ -37,6 +37,7 @@ sudo apt install \
     code \
     compton \
     feh \
+    firefox \
     git \
     google-chrome-stable \
     hsetroot \
@@ -81,7 +82,7 @@ sudo snap install --classic \
 sudo chsh -s /bin/zsh $USER
 
 # set preferred browser
-sudo update-alternatives --set x-www-browser $(which google-chrome-stable)
+sudo update-alternatives --set x-www-browser $(which firefox)
 
 # create expected dirs
 mkdir -p "$HOME/workplace"

@@ -74,7 +74,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 
 export EDITOR='vim'
-export BROWSER='/usr/bin/google-chrome'
+export BROWSER='/usr/bin/firefox'
 
 alias vi='vim'
 alias ls='ls --color=auto'
