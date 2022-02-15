@@ -1,5 +1,4 @@
 #!/bin/sh
-set -x
 
 # Apt
 echo '\e[32mUpgrading apt\e[0m'
